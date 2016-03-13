@@ -45,6 +45,7 @@ public class BaseTest {
 
     @BeforeTest
     public void startTest() {
+	System.setProperty("org.uncommons.reportng.escape-output", "false");
 	DOMConfigurator.configure("log4j.xml");
 	Screenshot.deleterAll();
 	driverSelection();
@@ -66,12 +67,11 @@ public class BaseTest {
 
     @Test
     public void authorizationCheck() {
-	LOG.info("Start authorizationCheck");
+	LOG.info("Start authorizationCheck\n");
 	System.out.println("Checking login to the system.");
-	boolean openMainPage = new LoginPage(driver).loginMetod(XmlUtils.initializationUser(file)).IsExitButon();
-	Screenshot.make(driver);
+	boolean openMainPage = new LoginPage(driver).loginMetod(XmlUtils.initializationUser(file)).IsProfileButon();
 	Assert.assertTrue(openMainPage, "Login not implemented");
-	LOG.info("End authorizationCheck");
+	LOG.info("End authorizationCheck\n");
     }
 
 }

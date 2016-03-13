@@ -42,7 +42,7 @@ public class BasePage {
      * @return - The presence of the name field on the page
      */
     public boolean isElementDisplayed(WebElement nameElement) {
-	LOG.info("Start isElementDisplayed");
+	LOG.info("Start isElementDisplayed\n");
 	try {
 	    return nameElement.isDisplayed();
 	} catch (NoSuchElementException e) {
@@ -59,7 +59,7 @@ public class BasePage {
      *            - The selected text
      */
     public void inputText(WebElement nameElement, String text) {
-	LOG.info("Start inputText");
+	LOG.info("Start inputText\n");
 	builder.moveToElement(nameElement).click().click().sendKeys(text).perform();
     }
 
@@ -70,7 +70,7 @@ public class BasePage {
      *            -The selected item
      */
     public void clickElement(WebElement nameElement) {
-	LOG.info("Start clickElement");
+	LOG.info("Start clickElement\n");
 	builder.moveToElement(nameElement).click().perform();
 	checkDialogBox();
     }
@@ -79,7 +79,7 @@ public class BasePage {
      * Bypass dialog
      */
     public void checkDialogBox() {
-	LOG.info("Start checkDialogBox");
+	LOG.info("Start checkDialogBox\n");
 	try {
 	    Alert alert = driver.switchTo().alert();
 	    alert.accept();

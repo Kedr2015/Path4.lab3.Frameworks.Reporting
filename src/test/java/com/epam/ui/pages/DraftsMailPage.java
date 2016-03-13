@@ -38,7 +38,7 @@ public class DraftsMailPage extends MainMailPage {
      */
     public String getSubjectAndTextMail() {
 	DOMConfigurator.configure("log4j.xml");
-	LOG.info("Start getSubjectAndTextMail");
+	LOG.info("Start getSubjectAndTextMail\n");
 	return subjectAndTextMail.getText();
     }
 

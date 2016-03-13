@@ -42,7 +42,7 @@ public class NewMailPage extends MainMailPage {
      * 
      */
     public void writterMail(String to, String subject, String text) {
-	LOG.info("Start writterMail");
+	LOG.info("Start writterMail\n");
 	toMail.sendKeys(to);
 	subjectMail.sendKeys(subject);
 	textMail.sendKeys(text);
@@ -53,7 +53,7 @@ public class NewMailPage extends MainMailPage {
      * 
      */
     public MainMailPage sendMail(String to, String subject, String text) {
-	LOG.info("Start sendMail");
+	LOG.info("Start sendMail\n");
 	writterMail(to, subject, text);
 	sendToMail.click();
 	checkDialogBox();
@@ -65,7 +65,7 @@ public class NewMailPage extends MainMailPage {
      * 
      */
     public NewMailPage saveMail(String to, String subject, String text) {
-	LOG.info("Start saveMail");
+	LOG.info("Start saveMail\n");
 	writterMail(to, subject, text);
 	saveNewMailButton.click();
 	return this;

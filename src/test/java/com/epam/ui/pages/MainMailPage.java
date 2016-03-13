@@ -24,8 +24,11 @@ public class MainMailPage extends BasePage {
     }
 
     // Button exit
-    @FindBy(xpath = ".//a[@class='qwh_logout']")
+    @FindBy(css = ".tl_exit>a")
     protected WebElement exitButton;
+    // Button profile user
+    @FindBy(css = ".tl_profile_link>img")
+    protected WebElement profileButton;
     // Button New Mail
     @FindBy(xpath = ".//div[@id='left_Menu']//a[@href='/compose']")
     protected WebElement newMailButton;
@@ -54,7 +57,7 @@ public class MainMailPage extends BasePage {
      * @return NewMailPage
      */
     public NewMailPage writeNewLetter() {
-	LOG.info("Start writeNewLetter");
+	LOG.info("Start writeNewLetter\n");
 	newMailButton.click();
 	checkDialogBox();
 	return new NewMailPage(driver);
@@ -66,7 +69,8 @@ public class MainMailPage extends BasePage {
      * @return LoginPage
      */
     public LoginPage exitSystem() {
-	LOG.info("Start exitSystem");
+	LOG.info("Start exitSystem\n");
+	profileButton.click();
 	exitButton.click();
 	return new LoginPage(driver);
     }
@@ -77,7 +81,7 @@ public class MainMailPage extends BasePage {
      * @return DraftsMailPage
      */
     public DraftsMailPage goToDraftsMail() {
-	LOG.info("Start goToDraftsMail");
+	LOG.info("Start goToDraftsMail\n");
 	goToDraftsButton.click();
 	checkDialogBox();
 	if (title.getText().equals("Черновики")) {
@@ -88,7 +92,7 @@ public class MainMailPage extends BasePage {
     }
 
     public MainMailPage waitForMessage() {
-	LOG.info("Start waitForMessage");
+	LOG.info("Start waitForMessage\n");
 	if (isElementDisplayed(thruSent)) {
 	    thruSentClose.click();
 	    return this;
@@ -103,7 +107,7 @@ public class MainMailPage extends BasePage {
      * @return SentMailPage
      */
     public SentMailPage goToSentsMail() {
-	LOG.info("Start goToSentsMail");
+	LOG.info("Start goToSentsMail\n");
 	goToSentButton.click();
 	checkDialogBox();
 	if (title.getText().equals("Отправленные")) {
@@ -118,9 +122,9 @@ public class MainMailPage extends BasePage {
      * 
      * @return - true or false
      */
-    public boolean IsExitButon() {
-	LOG.info("Start IsExitButon");
-	return isElementDisplayed(exitButton);
+    public boolean IsProfileButon() {
+	LOG.info("Start IsExitButon\n");
+	return isElementDisplayed(profileButton);
     }
 
 }

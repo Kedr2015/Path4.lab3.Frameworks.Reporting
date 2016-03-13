@@ -46,7 +46,7 @@ public class LoginPage extends BasePage {
      *            - user password
      */
     public void inputName(String name) {
-	LOG.info("Start inputName");
+	LOG.info("Start inputName\n");
 	executor.executeScript("arguments[0].value='" + name + "';", userNameLocator);
     }
 
@@ -54,7 +54,7 @@ public class LoginPage extends BasePage {
      * Clicking on the Login
      */
     public void pressButtonInput() {
-	LOG.info("Start pressButtonInput");
+	LOG.info("Start pressButtonInput\n");
 	executor.executeScript("arguments[0].click();", loginButton);
     }
 
@@ -65,7 +65,7 @@ public class LoginPage extends BasePage {
      * @return MainMailPage
      */
     public MainMailPage loginMetod(User user) {
-	LOG.info("Start loginMetod");
+	LOG.info("Start loginMetod\n");
 	inputName(user.getLogin());
 	inputText(userPasswordXpath, user.getPassword());
 	pressButtonInput();

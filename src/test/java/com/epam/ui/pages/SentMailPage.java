@@ -38,7 +38,7 @@ public class SentMailPage extends MainMailPage {
      * @return - Availability of posts on the page
      */
     public String getSubjectAndTextMailAndTo() {
-	LOG.info("Start getSubjectAndTextMailAndTo");
+	LOG.info("Start getSubjectAndTextMailAndTo\n");
 	return subjectAndTextMail.getText();
     }
 
