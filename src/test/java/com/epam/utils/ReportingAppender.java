@@ -20,8 +20,15 @@ public class ReportingAppender extends AppenderSkeleton{
 
     @Override
     protected void append(LoggingEvent event) {
-	String messenger = this.layout.format(event);
-	Reporter.log(messenger);
+	StringBuilder result = new StringBuilder(layout.format(event));
+	String[] s = event.getThrowableStrRep();
+	if (s != null) {
+		for (final String value : s) {
+			result.append(value).append(Layout.LINE_SEP);
+		}
+	}
+	String finalMessage = result.toString() + "<br>";
+	Reporter.log(finalMessage);
     }
 
 }
