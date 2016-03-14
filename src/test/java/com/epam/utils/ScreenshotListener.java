@@ -44,12 +44,12 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
 	screenMake(result);
-	LOG.info("Test - error");
+	LOG.info("Screnshot onTestFailure method: " + testResult.getName()););
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-	LOG.info("Test - Skipped");
+	LOG.info("Screnshot onTestSkipped method: " + testResult.getName()););
     }
 
     @Override
