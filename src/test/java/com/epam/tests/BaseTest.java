@@ -70,7 +70,8 @@ public class BaseTest {
 	LOG.info("Start authorizationCheck\n");
 	System.out.println("Checking login to the system.");
 	boolean openMainPage = new LoginPage(driver).loginMetod(XmlUtils.initializationUser(file)).IsProfileButon();
-	Assert.assertTrue(openMainPage, "Login not implemented");
+	//Для проверки метода снятия скриншота
+	Assert.assertFalse(openMainPage, "Login not implemented");
 	LOG.info("End authorizationCheck\n");
     }
 
